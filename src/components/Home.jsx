@@ -80,6 +80,32 @@ export default function Navbar({ isDark, toggleTheme }) {
   }, []);
   //ctrl+k end
 
+  //email notified
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = () => {
+    if (!email) {
+      setError("*Please write email*");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setEmail("");
+      setError("*Please enter a valid email*");
+      return;
+    }
+    // Submit form programmatically
+    document.getElementById("googleForm").submit();
+
+    setEmail("");
+    setSubscribed(true);
+    setError("");
+  };
+
   return (
     <div
       className={`overflow-x-hidden h-[100vh] w-[100vw] ${
@@ -107,7 +133,6 @@ export default function Navbar({ isDark, toggleTheme }) {
 
             {/* Right - Search, GitHub, Theme Toggle */}
             <div className="flex items-center space-x-4">
-
               {/* GitHub Button */}
               <a
                 href="https://github.com/MOHIT-GITHUB-18/sutra.com-ui"
@@ -994,24 +1019,52 @@ export default function Navbar({ isDark, toggleTheme }) {
         </h2>
         {/* Right Form */}
         <div className="flex items-center md:flex-row flex-col gap-5 w-full md:w-auto z-10">
-          <input
-            type="email"
-            placeholder="Enter your email..."
-            className={`${
-              isDark
-                ? "bg-[#1F1F22] text-gray-300 border-[#444]"
-                : "bg-[#ffffff] text-gray-900 border-[#888]"
-            } placeholder-gray-400 rounded-full px-5 py-3 w-full md:w-80 outline-none border  focus:border-gray-500 transition`}
-          />
-          <button
-            className={`${
-              isDark
-                ? "bg-white text-black hover:bg-gray-200"
-                : "bg-black text-white hover:bg-gray-800"
-            } cursor-pointer font-medium px-6 py-3 ml-3 rounded-full hover:bg-gray-200 transition`}
+          <iframe name="hidden_iframe" style={{ display: "none" }}></iframe>
+
+          <form
+            action="https://docs.google.com/forms/d/e/1FAIpQLSclOCf_CG_JP9cMYm1bzIJyXUm1mv6qEjx_ea0BFAs5Hm-1sQ/formResponse"
+            method="POST"
+            target="hidden_iframe"
+            id="googleForm"
+            className="flex items-center justify-center "
           >
-            Subscribe
-          </button>
+            <input
+              type="text"
+              name="entry.1083737467"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setError("");
+              }}
+              placeholder={error || "Enter your email"}
+              className={`
+    ${
+      isDark
+        ? "bg-[#1F1F22] text-gray-300 border-[#444]"
+        : "bg-[#ffffff] text-gray-900 border-[#888]"
+    }
+    placeholder-gray-400 rounded-full px-5 py-3 w-full md:w-80
+    outline-none border focus:border-gray-500 transition
+    ${error ? "placeholder-red-500 border-red-500 bg-[#ff000022]" : ""}
+  `}
+            />
+
+            <button
+              onClick={handleSubmit}
+              disabled={subscribed}
+              className={`
+    ${
+      isDark
+        ? "bg-white text-black hover:bg-gray-200"
+        : "bg-black text-white hover:bg-gray-800"
+    }
+    cursor-pointer font-medium px-6 py-3 ml-3 rounded-full transition
+    ${subscribed ? "opacity-60 cursor-not-allowed" : ""}
+  `}
+            >
+              {subscribed ? "Subscribed" : "Subscribe"}
+            </button>
+          </form>
         </div>
       </div>
     </div>
