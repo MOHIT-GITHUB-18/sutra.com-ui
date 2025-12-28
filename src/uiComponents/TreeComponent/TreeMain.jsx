@@ -550,7 +550,7 @@ function TreeNode({
 
               {/* GitHub Button */}
               <a
-                href="https://github.com"
+                href="https://github.com/MOHIT-GITHUB-18/sutra.com-ui"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${
