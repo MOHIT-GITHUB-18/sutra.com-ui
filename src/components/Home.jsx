@@ -98,13 +98,16 @@ export default function Navbar({ isDark, toggleTheme }) {
       setError("*Please enter a valid email*");
       return;
     }
-    // Submit form programmatically
     document.getElementById("googleForm").submit();
 
     setEmail("");
     setSubscribed(true);
     setError("");
   };
+
+  function inputOnClick(){
+    setShowPopup(true);
+  }
 
   return (
     <div
@@ -193,6 +196,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               />
             </div>
             <input
+            onClick={inputOnClick}
               type="text"
               placeholder="Ctrl+K"
               className={`${
