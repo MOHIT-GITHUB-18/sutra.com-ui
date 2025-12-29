@@ -105,7 +105,7 @@ export default function Navbar({ isDark, toggleTheme }) {
     setError("");
   };
 
-  function inputOnClick(){
+  function inputOnClick() {
     setShowPopup(true);
   }
 
@@ -174,9 +174,36 @@ export default function Navbar({ isDark, toggleTheme }) {
 
       <div className="main p-10 flex flex-col">
         <div className="main-content mb-20">
-          <h1 className="text-5xl mt-10 beautiful  font-semibold w-[70%]">
-            Elegant UI components crafted using Tailwind CSS and React.
-          </h1>
+          
+          <h1
+            ref={(el) => {
+              if (!el || el.dataset.done) return;
+              el.dataset.done = true;
+
+              const text =
+                "Elegant UI components crafted using Tailwind CSS and React.";
+              const duration = text.length * 25 + 200;
+
+              el.innerHTML = "";
+
+              text.split("").forEach((char, i) => {
+                const span = document.createElement("span");
+                span.textContent = char === " " ? "\u00A0" : char;
+                span.className = "blur-char";
+                el.appendChild(span);
+
+                setTimeout(() => {
+                  span.classList.add("show");
+                }, i * 25);
+              });
+
+              //replace with normal text after animation
+              setTimeout(() => {
+                el.innerHTML = text;
+              }, duration);
+            }}
+            className="text-5xl mt-10 beautiful font-semibold w-[70%]"
+          ></h1>
 
           <p
             className={`mt-7 text-xl mb-7 ${
@@ -196,7 +223,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               />
             </div>
             <input
-            onClick={inputOnClick}
+              onClick={inputOnClick}
               type="text"
               placeholder="Ctrl+K"
               className={`${
