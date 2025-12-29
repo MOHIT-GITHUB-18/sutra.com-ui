@@ -172,7 +172,7 @@ export default function Navbar({ isDark, toggleTheme }) {
       <div className="main p-10 flex flex-col">
         <div className="main-content mb-20">
           <h1 className="text-5xl mt-10 beautiful  font-semibold w-[70%]">
-            Beautiful UI components built with Tailwind CSS and React.
+            Elegant UI components crafted using Tailwind CSS and React.
           </h1>
 
           <p
