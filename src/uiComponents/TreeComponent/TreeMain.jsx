@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Search, Github, Sun, Moon } from "lucide-react";
 import Sidebar from "../sidebar";
 import CodePopup from "../CodePopup";
+import AppNavbar from "../../components/AppNavbar";
 
 const TreeMain = ({ isDark, toggleTheme }) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -507,82 +508,8 @@ function TreeNode({
 
   return (
     <>
-      <nav
-        className={`${
-          isDark ? "bg-[#000] border-gray-700" : "bg-white border-gray-200"
-        } border-b`}
-      >
-        <div className="max-w-7xl mx-auto cursor-pointer px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Left - Logo */}
-            <Link to={"/"}>
-              <div
-                style={{ fontFamily: "cal sans, sans-serif" }}
-                className={`text-[28px] ${
-                  isDark ? "text-[#eee]" : "text-[#222]"
-                }`}
-              >
-                Sutra.<span className="text-[#8E8E95]">com</span>
-              </div>
-            </Link>
+    <AppNavbar isDark={isDark} toggleTheme={toggleTheme}/>
 
-            {/* Right - Search, GitHub, Theme Toggle */}
-            <div className="flex items-center space-x-4">
-              {/* Search Input */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search
-                    className={`h-5 w-5 ${
-                      isDark ? "text-gray-500" : "text-gray-500"
-                    }`}
-                  />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Ctrl+K"
-                  className={`${
-                    isDark
-                      ? "bg-[#111] border-gray-600 text-white placeholder-gray-400"
-                      : "bg-gray-100 border-gray-300 text-gray-900 placeholder-gray-500"
-                  } pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-700 w-48`}
-                />
-              </div>
-
-              {/* GitHub Button */}
-              <a
-                href="https://github.com/MOHIT-GITHUB-18/sutra.com-ui"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${
-                  isDark
-                    ? "bg-[#222] hover:text-gray-400 text-gray-500"
-                    : "bg-gray-200 hover:bg-gray-300 text-gray-900"
-                } p-2 rounded-lg cursor-pointer`}
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-
-              {/* Dark/Light Mode Toggle */}
-              <button
-                onClick={toggleTheme}
-                className={`${
-                  isDark
-                    ? "bg-[#222] hover:text-gray-400 text-gray-500"
-                    : "bg-gray-200 hover:bg-gray-300 text-gray-700"
-                } p-2 rounded-lg cursor-pointer`}
-                aria-label="Toggle theme"
-              >
-                {isDark ? (
-                  <Moon className="h-5 w-5" />
-                ) : (
-                  <Sun className="h-5 w-5" />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
       <div className="flex justify-between">
         <Sidebar isDark={isDark} toggleTheme={toggleTheme} />
         <div

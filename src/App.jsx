@@ -6,15 +6,16 @@ import Navbar from "./uiComponents/Navbar";
 import Sidebar from "./uiComponents/sidebar";
 import Tree from "./uiComponents/TreeComponent/TreeMain";
 import ComingSoon from "./components/ComingSoon";
+import AppNavbar from "./components/AppNavbar";
 
 export default function App() {
-  const [isDark, setIsDark] = useState(true);
 
+  const [isDark, setIsDark] = useState(true);
   const toggleTheme = () => setIsDark(!isDark);
 
   return (
     <Router>
-      <div className={isDark ? "bg-white text-black" : "bg-black text-white"}>
+      <div>
         <Routes>
           <Route
             path="/"
@@ -30,6 +31,9 @@ export default function App() {
           />
           <Route
             element={<Sidebar isDark={isDark} toggleTheme={toggleTheme} />}
+          />
+          <Route
+            element={<AppNavbar isDark={isDark} toggleTheme={toggleTheme} />}
           />
           <Route
             path="/comingsoon"
