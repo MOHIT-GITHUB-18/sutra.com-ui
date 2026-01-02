@@ -88,7 +88,7 @@ export default function Navbar({ isDark, toggleTheme }) {
 
   const handleSubmit = () => {
     if (!email) {
-      setError("*Please write email*");
+      setError("Please write email");
       return;
     }
 
@@ -96,7 +96,7 @@ export default function Navbar({ isDark, toggleTheme }) {
 
     if (!emailRegex.test(email)) {
       setEmail("");
-      setError("*Please enter a valid email*");
+      setError("Please enter a valid email");
       return;
     }
     document.getElementById("googleForm").submit();
