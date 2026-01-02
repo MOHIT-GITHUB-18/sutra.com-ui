@@ -5,11 +5,10 @@
   font-weight: 500;
 }
 ::-webkit-scrollbar{
-  width: 10px;
-  background-color: #222;
+  width: 5px;
 }
 ::-webkit-scrollbar-thumb{
-  background-color: #353535;
+  background-color: #67676763;
   border-radius: 3px;
 }
 .sidebarbtn{

@@ -76,7 +76,7 @@ export default function Popup({ onClose, isDark, toggleTheme }) {
 
         <button
           onClick={onClose}
-          className="text-gray-400 hover:text-white transition"
+          className="text-gray-400 hover:text-white cursor-pointer duration-75 transition"
         >
           <i className="ri-close-line text-xl"></i>
         </button>
@@ -107,7 +107,7 @@ export default function Popup({ onClose, isDark, toggleTheme }) {
                 <li
                   key={index}
                   onClick={() => handleSelect(item)}
-                  className="px-4 py-3 rounded-lg bg-transparent hover:bg-[#252551] cursor-pointer transition flex items-center justify-between text-white"
+                  className="px-4 py-3 rounded-lg bg-transparent hover:bg-[#2c2c3ee8] cursor-pointer transition duration-100 flex items-center justify-between text-white"
                 >
                   <span>{item}</span>
                   <span className="text-xs text-gray-400"><i class="ri-corner-down-left-fill"></i> Enter</span>
