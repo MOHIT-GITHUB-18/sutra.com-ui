@@ -15,7 +15,7 @@ const Sidebar = ({ isDark, toggleTheme }) => {
         ${
           isDark
             ? "bg-black text-white border-[#ffffff31]"
-            : "bg-white text-gray-900 border-gray-300"
+            : "bg-white text-[#2a2a2a] border-gray-300"
         }
         ${isSidebarOpen ? "w-[250px]" : "w-0"}
       `}
@@ -94,14 +94,15 @@ const Sidebar = ({ isDark, toggleTheme }) => {
 
       <button
         onClick={sidebarHandler}
-        className="sidebarbtn p-5 cursor-pointer"
+        className={`sidebarbtn p-5 cursor-pointer`}
+               
       >
         <svg
           width="28px"
           height="28px"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#bbb"
+          stroke={isDark ? "#fff" : "#2a2a2a"}
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="1.5" />
