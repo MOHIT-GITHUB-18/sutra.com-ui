@@ -7,7 +7,7 @@ const AppNavbar = ({ isDark, toggleTheme }) => {
   return (
     <nav
         className={`${
-          isDark ? "bg-[#000] border-gray-700" : "bg-white border-gray-200"
+          isDark ? "bg-[#101010] border-gray-700" : "bg-white border-gray-200"
         } border-b`}
       >
         <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">

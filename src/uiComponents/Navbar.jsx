@@ -141,7 +141,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
         <Sidebar isDark={isDark} toggleTheme={toggleTheme}/>
         <div
           className={`w-[100vw] navbarMain  ${
-            isDark ? "bg-[#000] text-[#fff]" : "bg-[#fff] text-[#111]"
+            isDark ? "bg-[#101010] text-[#fff]" : "bg-[#fff] text-[#111]"
           } flex items-center flex-col p-10`}
         >
           <div className="topContent w-[100%] flex flex-col items-center justify-center">

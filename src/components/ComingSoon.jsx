@@ -6,7 +6,7 @@ export default function ComingSoon({ isDark }) {
       className={`min-h-screen flex flex-col items-center justify-center text-center px-6
       ${
         isDark
-          ? "bg-black text-white border-[#ffffff31]"
+          ? "bg-[#101010] text-white border-[#ffffff31]"
           : "bg-white text-gray-900 border-gray-300"
       }`}
       style={{ fontFamily: '"Cal Sans", sans-serif' }}

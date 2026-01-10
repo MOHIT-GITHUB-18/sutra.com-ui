@@ -113,7 +113,7 @@ export default function Navbar({ isDark, toggleTheme }) {
   return (
     <div
       className={`overflow-x-hidden h-[100vh] w-[100vw] ${
-        isDark ? "bg-[#000] text-[#eee]" : "bg-[#fff] text-[#222]"
+        isDark ? "bg-[#101010] text-[#eee]" : "bg-[#fff] text-[#222]"
       }`}
     >
     <AppNavbar isDark={isDark} toggleTheme={toggleTheme}/>

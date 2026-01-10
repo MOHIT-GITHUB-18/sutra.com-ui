@@ -14,7 +14,7 @@ const Sidebar = ({ isDark, toggleTheme }) => {
         className={`h-screen sidebar overflow-hidden transition-all duration-300 border-r 
         ${
           isDark
-            ? "bg-black text-white border-[#ffffff31]"
+            ? "bg-[#101010] text-white border-[#ffffff31]"
             : "bg-white text-[#2a2a2a] border-gray-300"
         }
         ${isSidebarOpen ? "w-[250px]" : "w-0"}

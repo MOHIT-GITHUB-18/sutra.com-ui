@@ -514,12 +514,12 @@ function TreeNode({
         <Sidebar isDark={isDark} toggleTheme={toggleTheme} />
         <div
           className={`treeMain overflow-hidden w-[100vw] ${
-            isDark ? "bg-[#000] text-[#fff]" : "bg-[#fff] text-[#ddd]"
+            isDark ? "bg-[#101010] text-[#fff]" : "bg-[#fff] text-[#ddd]"
           } flex items-center flex-col gap-5 p-10`}
         >
           <div
             className={`topContent w-[100%] mb-5 flex flex-col items-center justify-center ${
-              isDark ? "bg-[#000] text-[#ddd]" : "bg-[#fff] text-[#111]"
+              isDark ? "bg-[#101010] text-[#ddd]" : "text-[#111]"
             }`}
           >
             <h1
